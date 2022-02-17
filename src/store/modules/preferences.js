@@ -1,5 +1,5 @@
 const state = () => ({
-    preferences: {
+    favorites: {
         color: '',
         season: {},
         foods: []
@@ -14,7 +14,7 @@ const actions = {
 
 const mutations = {
     UPDATE_PREFERENCES: (state, update) => {
-        state.preferences[update.key] = update.value
+        state.favorites[update.key] = update.value
     },
 }
 
