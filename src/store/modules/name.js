@@ -4,6 +4,12 @@ const state = () => ({
     lastName: ''
 })
 
+const getters = {
+    getFirstName: state => state.firstName,
+    getMiddleName: state => state.middleName,
+    getLastName: state => state.lastName
+}
+
 const mutations = {
     setFirstName: (state, value) => {
         state.firstName = value
@@ -19,5 +25,6 @@ const mutations = {
 export default {
     namespaced: true,
     state,
+    getters,
     mutations,
 }

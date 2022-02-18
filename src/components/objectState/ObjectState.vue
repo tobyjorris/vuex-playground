@@ -1,25 +1,26 @@
 <template>
-  <div class="col form-section">
-    <h2>
+  <div class="form-section">
+    <h2
+        @click="toggleIconColor"
+        data-bs-toggle="collapse"
+        data-bs-target="#objectDetails"
+        aria-expanded="false"
+        aria-controls="objectDetails"
+    >
       'Object' State
       <font-awesome-icon
-          @click="toggleIconColor"
           :style="iconColor"
-          icon="circle-question"
+          :icon="computedIcon"
           size="xs"
-          data-bs-toggle="collapse"
-          data-bs-target="#objectDetails"
-          aria-expanded="false"
-          aria-controls="objectDetails"
       />
     </h2>
     <div class="collapse mb-3" id="objectDetails">
       <div class="card card-body">
-        <p>The module holding the state used by this group of input components has a object oriented structure that looks like this:</p>
+        <div class="description">The module holding the state used by this group of input components has an object oriented structure that looks like this:</div>
         <pre>
             <code>
               const state = () => ({
-                preferences: {
+                favorites: {
                   color: '',
                   season: {},
                   foods: []
@@ -50,7 +51,14 @@ export default {
       } else {
         return {color: 'black'}
       }
-    }
+    },
+    computedIcon() {
+      if (this.showingDetails) {
+        return 'caret-up'
+      } else {
+        return 'caret-down'
+      }
+    },
   },
   data() {
     return {

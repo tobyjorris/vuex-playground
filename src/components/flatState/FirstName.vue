@@ -1,29 +1,23 @@
 <template>
-  <div class="form-floating form-row mb-3">
+  <div class="form-row mb-3">
+    <label for="firstName">First Name</label>
     <input
-        v-model="computedFirstName"
+        :value="getFirstName"
+        @input="setFirstName($event.target.value)"
         type="text"
         class="form-control"
-        id="floatingInput"
-        placeholder="Enter Your Name"
+        id="firstName"
+        placeholder="Enter Your First Name"
     >
-    <label for="floatingInput">First Name</label>
   </div>
 </template>
 
 <script>
-import {mapMutations} from 'vuex'
+import {mapMutations, mapGetters} from 'vuex'
 export default {
   name: "FirstName",
   computed: {
-    computedFirstName: {
-      get() {
-        return this.$store.state.name.firstName
-      },
-      set(value) {
-        this.setFirstName(value)
-      }
-    }
+    ...mapGetters('name', ['getFirstName'])
   },
   mounted() {
     this.setFirstName('First Name Set On Mount')

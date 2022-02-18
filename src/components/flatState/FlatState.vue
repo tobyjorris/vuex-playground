@@ -1,30 +1,31 @@
 <template>
-  <div class="col form-section">
-    <h2>
+  <div class="form-section">
+    <h2
+        @click="toggleIconColor"
+        data-bs-toggle="collapse"
+        data-bs-target="#flatDetails"
+        aria-expanded="false"
+        aria-controls="flatDetails"
+    >
       'Flat' State
       <font-awesome-icon
-          @click="toggleIconColor"
           :style="iconColor"
-          icon="circle-question"
+          :icon="computedIcon"
           size="xs"
-          data-bs-toggle="collapse"
-          data-bs-target="#collapseExample"
-          aria-expanded="false"
-          aria-controls="collapseExample"
       />
     </h2>
-    <div class="collapse mb-3" id="collapseExample">
-      <div class="card card-body">
-        <p>The module holding the state used by this group of input components has a flat structure that looks like this:</p>
+    <div class="collapse mb-3" id="flatDetails">
+      <div class="card card-body w-100">
+        <div class="description">The module holding the state used by this group of input components has a flat structure that looks like this:</div>
         <pre>
-                <code>
-                  const state = () => ({
-                    firstName: '',
-                    middleName: '',
-                    lastName: ''
-                  })
-                </code>
-              </pre>
+          <code>
+            const state = () => ({
+              firstName: '',
+              middleName: '',
+              lastName: ''
+            })
+          </code>
+        </pre>
       </div>
     </div>
     <first-name />
@@ -47,6 +48,13 @@ export default {
         return {color: 'green'}
       } else {
         return {color: 'black'}
+      }
+    },
+    computedIcon() {
+      if (this.showingDetails) {
+        return 'caret-up'
+      } else {
+        return 'caret-down'
       }
     }
   },

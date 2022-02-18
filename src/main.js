@@ -5,12 +5,13 @@ import Vue from 'vue'
 import App from "@/App";
 import store from './store/store'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faCircleQuestion } from '@fortawesome/free-solid-svg-icons'
+import { faCaretDown, faCaretUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import vSelect from 'vue-select'
 import 'vue-select/dist/vue-select.css';
 
-library.add(faCircleQuestion)
+library.add(faCaretDown)
+library.add(faCaretUp)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.component('v-select', vSelect)

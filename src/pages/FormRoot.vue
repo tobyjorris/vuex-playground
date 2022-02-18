@@ -1,33 +1,32 @@
 <template>
-  <div class="col" id="form-root">
-    <div class="container-fluid w-50">
-      <div class="row mb-3">
-        <flat-state />
-      </div>
-      <div class="row">
-        <object-state />
-      </div>
+    <div class="col-8" id="form-root">
+      <flat-state />
+      <object-state />
+      <dynamic-state />
     </div>
-  </div>
 </template>
 
 <script>
 import FlatState from "@/components/flatState/FlatState";
 import ObjectState from "@/components/objectState/ObjectState";
+import DynamicState from "@/components/dynamicState/DynamicState";
 export default {
   name: "FormRoot",
-  components: {ObjectState, FlatState},
+  components: {DynamicState, ObjectState, FlatState},
 }
 </script>
 
 <style>
 .form-section {
+  width: 100%;
+  margin-bottom: 15px;
   border: 1px solid gray;
   border-radius: .5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 2rem;
+}
+
+.description {
+  white-space: pre-line;
 }
 
 .form-row {

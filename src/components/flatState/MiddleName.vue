@@ -1,13 +1,13 @@
 <template>
-  <div class="form-floating form-row mb-3">
+  <div class="form-row mb-3">
+    <label for="middleName">Middle Name</label>
     <input
         v-model="computedMiddleName"
         type="text"
         class="form-control"
-        id="floatingInput"
-        placeholder="Enter Your Name"
+        id="middleName"
+        placeholder="Enter Your Middle Name"
     >
-    <label for="floatingInput">Middle Name</label>
   </div>
 </template>
 

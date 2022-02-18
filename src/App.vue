@@ -6,6 +6,9 @@
       </div>
     </div>
     <div class="row">
+        <div class="col-4">
+          <state-inspector />
+        </div>
         <form-root />
     </div>
   </div>
@@ -13,21 +16,22 @@
 
 <script>
 import FormRoot from "@/pages/FormRoot";
+import StateInspector from "@/components/stateInspector/StateInspector";
 export default {
   name: 'App',
   components: {
+    StateInspector,
     FormRoot,
-  }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+pre {
+  background-color: #E0E0E0;
+}
+
+h2:hover {
+  cursor: pointer;
 }
 </style>
