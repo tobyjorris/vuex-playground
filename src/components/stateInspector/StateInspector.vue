@@ -24,6 +24,7 @@
         }
       </div>
     </template>
+    <button type="button" class="btn btn-success" @click="logState">Log State</button>
   </div>
 </template>
 
@@ -41,6 +42,13 @@ export default {
       return this.$store.state.dynamic
     }
   },
+  methods: {
+    logState() {
+      let condensedState = {}
+      condensedState = {...this.nameModule, ...this.dynamicModule.form, ...this.preferencesModule.favorites}
+      console.log('State', condensedState)
+    }
+  }
 }
 </script>
 

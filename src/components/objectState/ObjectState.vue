@@ -16,7 +16,7 @@
     </h2>
     <div class="collapse mb-3" id="objectDetails">
       <div class="card card-body">
-        <div class="description">The module holding the state used by this group of input components has an object oriented structure that looks like this:</div>
+        <div class="description">The state module used by this group of input components has an object based structure that looks like this:</div>
         <pre>
             <code>
               const state = () => ({

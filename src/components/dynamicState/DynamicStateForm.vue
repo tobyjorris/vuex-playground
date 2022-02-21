@@ -5,7 +5,7 @@
       <input
           :value="value"
           @input="updateDynamicState({form: 'form', key: key, value: $event.target.value})"
-          type="text"
+          :type="returnInputType(key)"
           class="form-control"
           id="firstName"
           :placeholder="`Enter your ${formatKeyName(key)} here`"
@@ -29,6 +29,16 @@ export default {
       const capitalized = keyName.charAt(0).toUpperCase() + keyName.slice(1)
 
       return capitalized.split(/(?=[A-Z])/).join(' ')
+    },
+    returnInputType(fieldName) {
+      switch (fieldName) {
+        case 'name' : return 'text'
+        case 'email' : return 'email'
+        case 'phone' : return 'tel'
+        case 'contactMethod' : return 'text'
+        case 'department' : return 'text'
+        case 'message' : return 'text'
+      }
     },
     ...mapActions('dynamic', ['updateDynamicState'])
   }
