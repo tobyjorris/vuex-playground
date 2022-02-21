@@ -29,7 +29,7 @@
         </div>
         <pre>
           <code>
-            contactForm: {
+            form: {
               name: '',
               email: '',
               phone: '',
@@ -77,7 +77,7 @@ export default {
       showingDetails: false,
       axiosMock: new MockAdapter(axios),
       response: {
-        contactForm: {
+        form: {
           name: '',
           email: '',
           phone: '',

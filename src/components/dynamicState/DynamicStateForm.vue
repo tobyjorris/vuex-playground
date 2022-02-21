@@ -1,14 +1,16 @@
 <template>
   <form @submit.prevent>
-    <label for="firstName">Name</label>
-    <input
-        :value="getFormFields['name']"
-        @input="updateDynamicState({key: 'name', value: $event.target.value})"
-        type="text"
-        class="form-control"
-        id="firstName"
-        placeholder="Enter Your First Name"
-    >
+    <div class="form-row mb-3" v-for="(value, key) in getFormFields" :key="'dynamic-form-' + key">
+      <label for="firstName">{{ formatKeyName(key) }}</label>
+      <input
+          :value="value"
+          @input="updateDynamicState({form: 'form', key: key, value: $event.target.value})"
+          type="text"
+          class="form-control"
+          id="firstName"
+          :placeholder="`Enter your ${formatKeyName(key)} here`"
+      >
+    </div>
   </form>
 </template>
 
@@ -20,6 +22,14 @@ export default {
     ...mapGetters('dynamic', ['getFormFields'])
   },
   methods: {
+    debug(print) {
+      console.log(print)
+    },
+    formatKeyName(keyName) {
+      const capitalized = keyName.charAt(0).toUpperCase() + keyName.slice(1)
+
+      return capitalized.split(/(?=[A-Z])/).join(' ')
+    },
     ...mapActions('dynamic', ['updateDynamicState'])
   }
 }

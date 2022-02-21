@@ -4,14 +4,26 @@
     <div class="data-entry" v-for="(key, index) in Object.keys(nameModule)" :key="'name-' + index" >
       <span class="key-name">'{{key}}'</span>: {{nameModule[key]}}
     </div>
+    <hr>
     <div  class="data-entry" v-for="(key, index) in Object.keys(preferencesModule)" :key="'preferences-' + index">
       <span class="key-name">'{{key}}'</span>: {
-        <div style="margin-left: 15px" v-for="(value, index) in preferencesModule[key]" :key="'value-' + index">
+        <div style="margin-left: 15px" v-for="(value, index) in preferencesModule[key]" :key="'preferences-value-' + index">
           <span class="key-name">'{{ index }}'</span>
            : {{value}}
         </div>
       }
     </div>
+    <hr>
+    <template v-if="dynamicModule">
+      <div class="data-entry" v-for="(key, index) in Object.keys(dynamicModule)" :key="'dynamic-' + index">
+        <span class="key-name">'{{key}}'</span>: {
+        <div style="margin-left: 15px" v-for="(value, index) in dynamicModule[key]" :key="'preferences-value-' + index">
+          <span class="key-name">'{{ index }}'</span>
+          : {{value}}
+        </div>
+        }
+      </div>
+    </template>
   </div>
 </template>
 
@@ -25,6 +37,9 @@ export default {
     preferencesModule() {
       return this.$store.state.preferences
     },
+    dynamicModule() {
+      return this.$store.state.dynamic
+    }
   },
 }
 </script>
